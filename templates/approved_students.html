@@ -1,0 +1,88 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Academy - Account Management</title>
+  <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">  
+  <link rel="stylesheet" href="{% static 'styles/item.css' %}"> 
+  <link rel="stylesheet" href="{% static 'styles/items.css' %}">  
+ 
+   
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <a href="admin_dashboard">Dashboard</a>
+    <nav>
+       
+  </header>
+
+  <main id="main">
+    <div class="job-listing">
+      <section id="job-listings" class="job-listings">
+        <h3>Approved Students</h3>
+        <br><hr style="color: red;">
+        {% for item in all %}
+          <div class="item">
+            <div class="row">  <strong class="left-align">Full Name</strong>  <span class="right-align">{{ item.full_name }}</span>  <br>
+              <strong class="left-align">Phone Number</strong>  <span class="right-align">{{ item.phone_number }}</span>  <br>
+              <strong class="left-align">Email</strong> 
+              <span class="right-align">{{ item.email }}</span>
+              <br>
+              <strong class="left-align">Physical Address</strong> 
+              <span class="right-align">{{ item.physical_address }}</span>
+              <br>
+              <strong class="left-align">College Name</strong> 
+              <span class="right-align">{{ item.college_name}}</span>
+              <br>
+              <strong class="left-align">Course Name</strong> 
+              <span class="right-align">{{ item.course_name}}</span>
+              <br>
+              <strong class="left-align">Year Of Study</strong> 
+              <span class="right-align">{{ item.year_of_study }}</span>
+              <br>
+              <strong class="left-align">Graduation Date</strong> 
+              <span class="right-align">{{ item.graduation_date}}</span>
+              <br>
+              <strong class="left-align">Learning Objectives</strong> 
+              <span class="right-align">{{ item.learning_objectives}}</span>
+              <br>
+              <strong class="left-align">Start Date</strong> 
+              <span class="right-align">{{ item.start_date }}</span>
+              <br>
+              <strong class="left-align">End Date</strong> 
+              <span class="right-align">{{ item.end_date}}</span>
+              <br>
+              <strong class="left-align">Company Name</strong> 
+              <span class="right-align">{{ item.company_name }}</span>
+              <br>
+              <strong class="left-align">Company Email</strong> 
+              <span class="right-align">{{ item.company_email }}</span>
+              <br>
+              <strong class="left-align">Attachement Status</strong> 
+              <span class="right-align">{{ item.attachment_status }}</span>
+            </div>
+            
+            <br><hr style="color: red;">
+            <hr style="color: red;">
+          </div>
+        {% endfor %}
+      </section>
+    </div>
+   
+  </main>
+
+  <footer>
+    <p>&copy; Trust Academy Online Placement. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+

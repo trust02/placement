@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student_Sign_Up</title>
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <nav>
+        <a href="/">Home</a>
+       
+    </nav>
+  </header>
+  
+
+  <main id="main">
+    
+
+    <h1>Student Sign Up And Get Placed</h1>
+    
+    <div>
+      {% for message in messages %}
+
+      <h3 class="messagescolor">{{message}}</h3>
+
+      {% endfor%}
+    </div>
+
+    <form id="login-form" method ="post" action ="student_signup">
+      
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="username">Last name:</label>
+        <input type="text" id="username" name="lastname" required>
+      </div>
+      <div class="form-group">
+        <label for="username">First name:</label>
+        <input type="text" id="username" name="firstname" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required placeholder ="Use your email for username">
+      </div>
+      <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="email" id="username" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password1" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Confirm Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* Same as the previous CSS code for student-dashboard.html (can be included once) */
+
+.job-list {
+  list-style: none;
+  padding: 0;
+}
+
+.job-listing-item {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.job-listing-item h3 {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.job-listing-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.job-listing-item a:hover {
+  text-decoration: underline;
+}
+
+/* Same as the previous CSS code for student-dashboard.html (can be included once) */
+
+.job-list {
+  list-style: none;
+  padding: 0;
+}
+
+.job-listing-item {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.job-listing-item h3 {
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.job-listing-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.job-listing-item a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,1 @@
+web: gunicorn TAOPS.wsgi:application --log-file -

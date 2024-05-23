@@ -1,0 +1,45 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Academy - Company Dashboard</title>
+  <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
+
+</head>
+<body>
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <h2>Welcome!</h2>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="adpost">Post Company</a></li>
+      <li><a href="students_applying">Students Appling on Attachemnts</a></li>
+      <li><a href="approved_students">Approved Students</a></li>
+      <li><a href="logout">Logout</a></li>
+    </ul>
+  </nav>
+  <main>
+     
+    <section id="post-job">
+      <h3>Students Applying on Attachment :{{object_count}}</h3>
+    </section>
+
+    <section id="manage-applications">
+      <h3>Approved Students:{{approved_count}}</h3>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Trust Academy Online Placement. All rights reserved.</p>
+  </footer>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+  {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Academy - Account Management</title>
+  <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">  
+  <link rel="stylesheet" href="{% static 'styles/item.css' %}">  
+  <link rel="stylesheet" href="{% static 'styles/items.css' %}">
+   
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <nav>
+        <ul>
+          <li><a href="student_dashboard">Dashboard</a></li>
+          {% if user.is_authenticated %}
+          <h2>Welcome, {{user.last_name}} {{user.first_name}}!</h2>
+          {% else %}
+          <h2>Not</h2>
+          {% endif %}
+        </ul>
+      </nav>
+  </header>
+
+  <main id="main">
+    <div class="job-listing">
+      
+      <section id="job-listings" class ="job-listings">
+        <h3>Attachement Listings</h3>
+        <br><hr style="color: red;">
+        {% for item in all %}
+        <div class ="item">
+        <strong class="left-align">Company Name</strong> 
+        <span class="right-align">{{ item.company_name}}</span>
+        <div class ="item">
+        <strong class="left-align">Company Description</strong> 
+        <span class="right-align">{{ item.company_description}}</span>
+        <div class ="item">
+        <strong class="left-align">Company Email</strong> 
+        <span class="right-align">{{ item.company_email}}</span>
+        <div class ="item">
+        <strong class="left-align">Company Phone Number</strong> 
+        <span class="right-align">{{ item.phone_number}}</span>
+        <div class ="item">
+        <strong class="left-align">Attachment positions</strong> 
+        <span class="right-align">{{ item.attachement_positions}}</span>
+        <div class ="item">
+        <strong class="left-align">Physical Address</strong> 
+        <span class="right-align">{{ item.physical_address}}</span>
+
+                        
+        </span>
+        <br><hr style="color: red;">
+        <a href="attachment_apply"><button type="submit">Apply</button></a>
+        <hr style="color: red;">
+        
+        {% endfor %}
+        
+        </section>
+        
+  </div>
+   
+  </main>
+
+  <footer>
+    <p>&copy; Trust Academy Online Placement. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+

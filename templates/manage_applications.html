@@ -1,0 +1,129 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Academy - Account Management</title>
+  <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">  
+  <link rel="stylesheet" href="{% static 'styles/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/items.css' %}"> 
+ 
+   
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <br>
+    <h2><a href="company_dashboard">Dashboard</a></h2>
+  </header>
+
+  <main id="main">
+
+    <div class="job-listing">
+        <h3>Attachement Listings</h3>
+        <hr>
+      <section id="post-job">
+        <h2>Search by Company email</h2>
+          <form id="login-form" action="search" method="get">
+              <label for="search_term">Search Term:</label>
+              <input type="text" name="search" id="search_term" required>
+              <br>
+              <button type="submit">Search</button>
+          </form>
+      </section> 
+    </div>
+    {% if registered %}
+    <div class="job-listing">
+      {% for ite in registered %}
+      <section id="post-job">
+        <h2>Search Results</h2>
+        
+         <hr>
+         
+              <h2>Student's Details</h2>
+              <div class="row">  
+                <strong class="left-align">Full Name</strong>  <span class="right-align">{{ ite.full_name }}</span>  <br>
+                <strong class="left-align">Phone Number</strong>  <span class="right-align">{{ ite.phone_number }}</span>  <br>
+                <strong class="left-align">Email</strong> 
+                <span class="right-align">{{ ite.email }}</span>
+                <br>
+                <strong class="left-align">Physical Address</strong> 
+                <span class="right-align">{{ ite.physical_address }}</span>
+                <br>
+                <strong class="left-align">College Name</strong> 
+                <span class="right-align">{{ ite.college_name}}</span>
+                <br>
+                <strong class="left-align">Course Name</strong> 
+                <span class="right-align">{{ ite.course_name}}</span>
+                <br>
+                <strong class="left-align">Year Of Study</strong> 
+                <span class="right-align">{{ ite.year_of_study }}</span>
+                <br>
+                <strong class="left-align">Graduation Date</strong> 
+                <span class="right-align">{{ ite.graduation_date}}</span>
+                <br>
+                <strong class="left-align">Learning Objectives</strong> 
+                <span class="right-align">{{ ite.learning_objectives}}</span>
+                <br>
+                <strong class="left-align">Start Date</strong> 
+                <span class="right-align">{{ ite.start_date }}</span>
+                <br>
+                <strong class="left-align">End Date</strong> 
+                <span class="right-align">{{ ite.end_date}}</span>
+                <br>
+                <strong class="left-align">Company Name</strong> 
+                <span class="right-align">{{ ite.company_name }}</span>
+                <br>
+                <strong class="left-align">Company Email</strong> 
+                <span class="right-align">{{ ite.company_email }}</span>
+              </div>
+              <h2>Company Details</h2>
+              <hr>
+              <strong class="left-align">Company Name</strong> 
+              <span class="right-align">{{ ite.company_name}}</span>
+              <br>
+              <strong class="left-align">Company Email</strong> 
+              <span class="right-align">{{ ite.company_email}}</span>
+              <br><hr style="color: red;">
+              <h2>Approve Student</h2>
+            <form id="login-form" action="reply" method="POST">
+              {% csrf_token %}
+                <strong><label for="search_term">Company Email:</label></strong>
+                <input type="email" name="company_email" id="search_term" required placeholder = "example@gmail.com">
+                
+                <strong><label for="search_term">Student Email Email:</label></strong>
+                <input type="email" name="student_email" id="search_term" required placeholder = "example@gmail.com">
+                <br>
+                <button type="submit">Approve</button>
+            <hr>
+            </form>
+        </section>  
+          {% endfor %}
+      
+          {% else %}
+             <p>No Students found matching your search.</p>
+          {% endif %}
+        </section>
+      
+      </section>
+    </div>
+
+  </main>
+
+
+
+
+  <footer>
+    <p>&copy; Trust Academy Online Placement. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+

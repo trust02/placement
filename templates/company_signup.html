@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company_Sign_Up</title>
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <nav>
+        <a href="/">Home</a>
+       
+    </nav>
+  </header>
+
+  <main id="main">
+    <h1>Company Sign Up</h1>
+    
+    <div>
+      {% for message in messages %}
+
+      <h3 class="messagescolor">{{message}}</h3>
+
+      {% endfor%}
+    </div>
+
+    <form id="login-form" action="company_signup" method="POST">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="Comapny name">Comapny Name:</label>
+        <input type="text" id="username" name="company_name" required>
+      </div>
+      <div class="form-group">
+        <label for="Comapny name">Comapny Category:</label>
+        <input type="text" id="username" name="company_category" required placeholder ="Private Limited/ Gvnt">
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password1" required>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="password"> Confirm Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+      </div>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.left-align {
+    text-align: left;
+    display: inline-block;  /* Ensures elements stay on the same line */
+    width: 200px;  /* Adjust width as needed */
+  }
+  
+  .right-align {
+    text-align: right;
+    display: inline-block;  /* Ensures elements stay on the same line */
+  }

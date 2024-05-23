@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Academy - Account Management</title>
+  <link rel="stylesheet" href="{% static 'styles/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/landing.css' %}">  
+</head>
+<body>
+
+  <header>
+    <h1>Trust Academy Online Placement</h1>
+    <nav>
+        <ul>
+          <li><a href="student_dashboard">Dashboard</a></li>
+          <li><a href="profile_management">Profile Management (Current)</a></li>
+         
+        </ul>
+      </nav>
+  </header>
+
+  
+
+  <main id="main">
+    {% if user.is_authenticated %}
+    <h2>Welcome, {{user.last_name}} {{user.first_name}}!</h2>
+    {% else %}
+    <h2>Not</h2>
+    {% endif %}
+    <h2>Account Management</h2>
+    
+
+    <form id="profile-form" action ="profile_update" method ="POST">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" name="lastname" value ="{{user.last_name}}" >
+      </div>
+      <div class="form-group">
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="firstname" value= "{{user.first_name}}">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Username:</label>
+        <input type="email" id="email" name="username" value ="{{user.username}}">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value ="{{user.email}}">
+      </div>
+     
+      <button type="submit">Update Account</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; Trust Academy Online Placement. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
